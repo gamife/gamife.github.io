@@ -157,7 +157,7 @@ tags:
    ```
 
 如果是在一个遍历中使用反射改变切片长度, range的index还是原来的,所以要对改变长度的操作技术
-  
+
    ```go
    
     var currentRemove bool
@@ -192,12 +192,8 @@ tags:
    						v = reflect.Indirect(v)
    						j.Decs = append(j.Decs[:i-deleteCount], j.Decs[i+1-deleteCount:]...) //去掉标志的注释, 但是是通过一个slice复制体,没有
    						v.SetLen(v.Len() - 1)
-   						if strings.HasPrefix(flag, "/*") { //如果这一次有前缀,并且是/*开头的,要消除下一次的换行 /n
-   							nextRemove = true
-   						}
-   						deleteCount++
-   					}
-   					preKey = key
-   					WriteDst2File(node, filepath.Join(dir0, key+"_dst.txt"))
-   				}
+   						if strings.HasPrefix(flag, "/*") { //如果这一次有前缀,并且是/*开头的,要消除下一次的换行        
+                
    ```
+
+ 
